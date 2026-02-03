@@ -21,7 +21,10 @@ document.addEventListener("click", (e) => {
 
 // Simple index search (client-side)
 document.addEventListener("DOMContentLoaded", () => {
-  const input = document.querySelector("#storySearch");
+  const input =
+  document.querySelector("#storySearch") ||
+  document.querySelector("#siteSearch");
+
   const cards = Array.from(document.querySelectorAll("[data-story]"));
   if (!input || cards.length === 0) return;
 

@@ -650,16 +650,60 @@ img {
 ========================= */
 
 @media (max-width: 600px) {
+  /* Let the header wrap instead of smashing */
+  .nav,
+  .header-inner {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  /* Make the brand/title take full width */
+  .brand {
+    width: 100%;
+  }
+
+  /* Reduce logo/title size on mobile */
+  .site-title {
+    font-size: 2rem;
+  }
+
+  /* Optional: hide tagline to reduce vertical clutter */
+  .tagline,
+  .brand span {
+    display: none;
+  }
+
+  /* Show nav links on mobile and let them wrap */
   .navlinks,
   .nav-links {
-    display: none;
+    display: flex;
+    width: 100%;
+    margin-left: 0;
+    gap: 0.75rem;
+    flex-wrap: wrap;
   }
 
+  .navlinks a,
+  .nav-links a {
+    font-size: 0.95rem;
+  }
+
+  /* Keep search visible, full width */
   .search,
+  .nav-search,
   .header-search {
-    display: none;
+    display: block;
+    width: 100%;
+    margin-left: 0;
   }
 
+  .search input,
+  .nav-search input,
+  .header-search input {
+    width: 100%;
+  }
+
+  /* Existing story tweaks */
   .story-head h1,
   .story-title {
     font-size: 1.5rem;
@@ -669,7 +713,7 @@ img {
     height: 180px;
   }
 }
-
+ 
 /* ===== Split hero ===== */
 
 .story-hero.split {
