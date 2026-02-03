@@ -759,3 +759,15 @@ img {
   object-fit: cover;
   display: block;
 }
+
+/* Hide search bar inside stories */
+.story-page .search,
+.story-page .nav-search,
+.story-page .header-search {
+  display: none !important;
+}
+
+.story-page .nav,
+.story-page .header-inner {
+  padding-bottom: 0.5rem;
+}
