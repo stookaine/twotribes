@@ -771,3 +771,43 @@ img {
 .story-page .header-inner {
   padding-bottom: 0.5rem;
 }
+
+/* Share block */
+.share-block {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.share-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.share-btn {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  cursor: pointer;
+}
+
+.share-btn:hover {
+  background: #eee;
+}
+
+.share-feedback {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: #2563eb;
+}

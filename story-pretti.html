@@ -408,6 +408,24 @@
       </p>
     </div>
 
+    <div class="share-block">
+  <div class="share-label">Share this story</div>
+  <div class="share-buttons">
+    <button class="share-btn" onclick="copyStoryLink()">Copy link</button>
+    <a
+      class="share-btn"
+      href="https://www.facebook.com/sharer/sharer.php?u="
+      target="_blank"
+      rel="noopener noreferrer"
+      onclick="this.href += encodeURIComponent(window.location.href)"
+    >
+      Share on Facebook
+    </a>
+  </div>
+  <div id="share-feedback" class="share-feedback" aria-live="polite"></div>
+</div>
+
+
   </main>
 
   <script src="app.js"></script>

@@ -36,3 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+function copyStoryLink() {
+  const url = window.location.href;
+
+  navigator.clipboard.writeText(url).then(() => {
+    const feedback = document.getElementById("share-feedback");
+    if (!feedback) return;
+
+    feedback.textContent = "Link copied!";
+    setTimeout(() => {
+      feedback.textContent = "";
+    }, 2000);
+  });
+}
