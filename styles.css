@@ -1,0 +1,716 @@
+/* =========================
+   RESET & BASE
+========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f7f7f8;
+  --text: #111;
+  --muted: #555;
+  --border: #ddd;
+  --panel: #fff;
+
+  --blue: #2563eb;
+  --red: #dc2626;
+  --gray: #777;
+
+  --radius: 6px;
+  --container: 1200px;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================
+   CONTAINERS / PAGE WRAPS
+========================= */
+
+.container,
+.page {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* =========================
+   HEADER / NAV (supports both templates)
+========================= */
+
+/* Template A (story-pretti): .topbar .nav .navlinks .search */
+.topbar {
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Template B (story-epstein): .site-header .header-inner .nav-links .header-search */
+.site-header {
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Brand block */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Big title with colored words */
+.site-title {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+  display: inline-flex;
+  gap: 0.35rem;
+}
+
+.site-title .two,
+.brand-two {
+  color: var(--blue);
+}
+
+.site-title .tribes,
+.brand-tribes {
+  color: var(--red);
+}
+
+/* Tagline */
+.brand span,
+.tagline {
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+/* Nav links (both classnames) */
+.navlinks,
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+
+.navlinks a,
+.nav-links a {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.navlinks a:hover,
+.nav-links a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Spacer in the older template */
+.navspacer {
+  flex: 1;
+}
+
+/* Search (both classnames) */
+.search input,
+.header-search input {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* =========================
+   STORY HERO (Template A)
+========================= */
+
+.story-hero {
+  background: #000;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.story-hero img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+.story-head {
+  padding: 1rem;
+  background: var(--panel);
+}
+
+.story-head h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.8rem;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* =========================
+   STORY TOP (Template B)
+========================= */
+
+.story {
+  /* no-op wrapper to keep things consistent */
+}
+
+.story-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .story-top {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: start;
+  }
+}
+
+.story-kicker {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
+.story-title {
+  margin: 0.1rem 0 0.4rem;
+  font-size: 1.8rem;
+}
+
+.story-subtitle {
+  margin: 0 0 0.75rem;
+  color: #333;
+}
+
+.story-top-media {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.story-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.story-image-caption {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* =========================
+   PILLS
+========================= */
+
+.pillrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.pill {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  background: #f9f9f9;
+}
+
+/* =========================
+   PANELS (both templates)
+========================= */
+
+/* Template A uses .panels */
+.panels {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Template B uses .tri-grid */
+.tri-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .panels,
+  .tri-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1rem;
+}
+
+/* Panel accents */
+.panel-left {
+  border-top: 4px solid var(--blue);
+}
+
+.panel-right {
+  border-top: 4px solid var(--red);
+}
+
+.panel-facts {
+  border-top: 4px solid #999;
+}
+
+/* Template A header row (dot + label) */
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+}
+
+/* Template B uses .panel-title + headline text */
+.panel-title {
+  margin: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.panel-headline {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  color: #111;
+}
+
+.headline {
+  font-size: 1.1rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.headline.left {
+  color: #1e40af;
+}
+
+.headline.right {
+  color: #991b1b;
+}
+
+/* Dots (Template A) */
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot-left { background: var(--blue); }
+.dot-right { background: var(--red); }
+.dot-facts { background: var(--gray); }
+
+/* =========================
+   BULLETS / ACCORDION
+========================= */
+
+/* Accordion list (story-pretti) */
+.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bullets li {
+  border-top: 1px solid #eee;
+}
+
+.bullets li:first-child {
+  border-top: none;
+}
+
+.accordion-btn {
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 0.75rem 0.75rem;             /* add left/right padding */
+  display: grid;
+  grid-template-columns: 1fr 2fr 18px;  /* fixed chevron column */
+  gap: 0.5rem;
+  text-align: left;
+  font-size: 0.95rem;
+  cursor: pointer;
+  align-items: center;                  /* keeps chevrons vertically aligned */
+}
+
+.accordion-btn .k {
+  font-weight: 600;
+}
+
+.accordion-btn .v {
+  color: #444;
+}
+
+.chev {
+  justify-self: end;                    /* keeps it from drifting */
+  transform: rotate(90deg);
+  transition: transform 0.2s ease;
+}
+
+
+.accordion-btn[aria-expanded="true"] .chev {
+  transform: rotate(-90deg);
+}
+
+.detail {
+  display: none;
+  padding-bottom: 0.75rem;
+}
+
+.accordion-btn[aria-expanded="true"] + .detail {
+  display: block;
+}
+
+.detail p {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+/* Simple bullet list (story-epstein) */
+.panel ul.bullets li strong {
+  font-weight: 700;
+}
+
+/* =========================
+   SOURCES
+========================= */
+
+.sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.source-tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  background: #f9f9f9;
+}
+
+.source-tag:hover {
+  background: #eee;
+}
+
+/* =========================
+   VIDEO LINKS (POV)
+========================= */
+
+.video-block {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #eee;
+}
+
+.video-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666;
+  margin-bottom: 0.4rem;
+}
+
+.video-links {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.video-btn {
+  font-size: 0.75rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  color: #111;
+}
+
+.video-btn:hover {
+  background: #eee;
+}
+
+/* =========================
+   NARRATIVE MAP (both templates)
+========================= */
+
+/* Template A */
+.mapbox {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-top: 1.5rem;
+}
+
+.mapbox h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.mapbox p {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Template B */
+.narrative-map {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-top: 1.5rem;
+}
+
+.map-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.map-text {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* =========================
+   STORY LIST (INDEX CARDS)
+========================= */
+
+.storylist {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 800px) {
+  .storylist {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Cards */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.card > a {
+  display: block;
+}
+
+/* Thumbnails */
+.card > a > img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-body {
+  padding: 0.75rem 1rem;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.card-meta {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0.25rem 0 0.5rem;
+}
+
+/* Demonizing the Other Side boxes */
+.demonize {
+  margin: 14px 0 18px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.demonize strong {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+/* Left (blue) */
+.demonize-left {
+  background: #eef4ff;
+  border-left: 4px solid #3b6df2;
+}
+
+/* Right (red) */
+.demonize-right {
+  background: #fff0f0;
+  border-left: 4px solid #d94a38;
+}
+
+/* What each side rejects (Ground Reality) */
+.rejects{
+  margin: 14px 0 18px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #f4f4f6;
+  border-left: 4px solid #9aa0a6;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.rejects strong{
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.rejects ul{
+  margin: 0;
+  padding-left: 18px;
+}
+
+.rej-left{
+  color: #1e40af;
+  font-weight: 600;
+}
+
+.rej-right{
+  color: #991b1b;
+  font-weight: 600;
+}
+
+
+/* =========================
+   MOBILE TWEAKS
+========================= */
+
+@media (max-width: 600px) {
+  .navlinks,
+  .nav-links {
+    display: none;
+  }
+
+  .search,
+  .header-search {
+    display: none;
+  }
+
+  .story-head h1,
+  .story-title {
+    font-size: 1.5rem;
+  }
+
+  .story-image {
+    height: 180px;
+  }
+}
+
+/* ===== Split hero ===== */
+
+.story-hero.split {
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+  margin-bottom: 1.5rem;
+}
+
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .hero-split {
+    grid-template-columns: 1.25fr 0.75fr;
+    align-items: start;
+  }
+}
+
+.hero-copy {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.hero-media {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+
