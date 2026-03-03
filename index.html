@@ -5,6 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Two Tribes</title>
   <link rel="stylesheet" href="styles.css">
+
+  <!-- ✅ Beehiiv embed: responsive fixes (prevents cutoff on mobile) -->
+  <style>
+    .signup-wrap {
+      margin: 24px auto 40px;
+      text-align: center;
+      padding: 0 16px; /* gives breathing room on mobile */
+    }
+
+    .signup-frame {
+      width: 100%;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .beehiiv-embed {
+      width: 100% !important;
+      max-width: 560px;
+      border: 0;
+      display: block;
+      margin: 0 auto;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+
+      /* Desktop-ish default */
+      height: 338px;
+    }
+
+    /* Mobile: the form stacks, so it needs more height */
+    @media (max-width: 600px) {
+      .beehiiv-embed {
+        height: 520px; /* prevents the input/button from being cut off */
+      }
+    }
+  </style>
 </head>
 <body>
     <!-- Header -->
@@ -12,9 +48,9 @@
     <nav class="nav">
       <a class="brand" href="index.html">
         <h1 class="site-title">
-  <span class="two">Two</span>
-  <span class="tribes">Tribes</span>
-</h1>
+          <span class="two">Two</span>
+          <span class="tribes">Tribes</span>
+        </h1>
         <span>How two tribes interpret the same world.</span>
       </a>
 
@@ -22,7 +58,6 @@
         <a href="index.html">Stories</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-       
       </div>
 
       <div class="navspacer"></div>
@@ -46,110 +81,110 @@
       </div>
     </div>
 
-    <!-- Beehiiv signup (placed OUTSIDE the story grid so it won't break card layout) -->
-    <div style="margin: 24px 0 40px; text-align: center;">
+    <!-- ✅ Beehiiv signup (responsive + no cutoff on mobile) -->
+    <div class="signup-wrap">
       <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-      <iframe 
-        src="https://subscribe-forms.beehiiv.com/b012d6d2-198e-4096-af3b-3fa51fe59020"
-        class="beehiiv-embed"
-        data-test-id="beehiiv-embed"
-        frameborder="0"
-        scrolling="no"
-        style="width: 560px; height: 338px; margin: 0 auto; border-radius: 0; background-color: transparent; box-shadow: none; max-width: 100%; display: block;">
-      </iframe>
+      <div class="signup-frame">
+        <iframe 
+          src="https://subscribe-forms.beehiiv.com/b012d6d2-198e-4096-af3b-3fa51fe59020"
+          class="beehiiv-embed"
+          data-test-id="beehiiv-embed"
+          frameborder="0"
+          scrolling="no">
+        </iframe>
+      </div>
     </div>
 
     <section class="storylist" style="margin-top:14px;">
 
-    <!-- Card Iran Strikes -->
+      <!-- Card Iran Strikes -->
       <article class="card" data-story="iran-regime-change-strikes">
-  <a href="story-iran.html">
-    <img src="images/stories/iran/iran.png" alt="Smoke over a city after airstrikes, used as a neutral placeholder image." />
-    <div class="card-body">
-      <h2 class="card-title">The Bombing of Iran</h2>
-      <div class="card-meta">Mar 1, 2026</div>
-      <div class="pillrow">
-        <span class="pill">War Powers</span>
-        <span class="pill">Regime Change</span>
-        <span class="pill">Blowback Risk</span>
-      </div>
-    </div>
-  </a>
-</article>
+        <a href="story-iran.html">
+          <img src="images/stories/iran/iran.png" alt="Smoke over a city after airstrikes, used as a neutral placeholder image." />
+          <div class="card-body">
+            <h2 class="card-title">The Bombing of Iran</h2>
+            <div class="card-meta">Mar 1, 2026</div>
+            <div class="pillrow">
+              <span class="pill">War Powers</span>
+              <span class="pill">Regime Change</span>
+              <span class="pill">Blowback Risk</span>
+            </div>
+          </div>
+        </a>
+      </article>
 
       <!-- Card SAVE Act -->
-<article class="card" data-story="save act safeguard american voter eligibility election integrity proof of citizenship voter registration fraud prevention voting rules congress senate ballot access trust">
-  <a href="story-save-act.html">
-    <img src="images/stories/save-act/save-act.png" alt="Documentary-style image of a polling place sign, the U.S. Capitol, and citizenship documents"/>
-    <div class="card-body">
-      <h2 class="card-title">The SAVE Act and the Election Integrity Fight</h2>
-      <div class="card-meta">United States • Elections • Published 2.23.26</div>
-      <div class="pillrow">
-        <span class="pill">Elections</span>
-        <span class="pill">Voting rules</span>
-        <span class="pill">Trust</span>
-      </div>
-    </div>
-  </a>
-</article>
+      <article class="card" data-story="save act safeguard american voter eligibility election integrity proof of citizenship voter registration fraud prevention voting rules congress senate ballot access trust">
+        <a href="story-save-act.html">
+          <img src="images/stories/save-act/save-act.png" alt="Documentary-style image of a polling place sign, the U.S. Capitol, and citizenship documents"/>
+          <div class="card-body">
+            <h2 class="card-title">The SAVE Act and the Election Integrity Fight</h2>
+            <div class="card-meta">United States • Elections • Published 2.23.26</div>
+            <div class="pillrow">
+              <span class="pill">Elections</span>
+              <span class="pill">Voting rules</span>
+              <span class="pill">Trust</span>
+            </div>
+          </div>
+        </a>
+      </article>
 
-          <!-- Card Gender Care -->
-<article class="card" data-story="gender care minors transgender youth state bans healthcare courts parental rights medical debate culture divide">
-  <a href="story-gender.html">
-    <img src="images/stories/gender/gender.png" alt="Documentary-style image of a state capitol building and hospital exterior"/>
-    <div class="card-body">
-      <h2 class="card-title">The Fight Over Gender Care for Minors</h2>
-      <div class="card-meta">United States • Healthcare policy • Published 2.23.26</div>
-      <div class="pillrow">
-        <span class="pill">Healthcare</span>
-        <span class="pill">Youth policy</span>
-        <span class="pill">Culture divide</span>
-      </div>
-    </div>
-  </a>
-</article>
+      <!-- Card Gender Care -->
+      <article class="card" data-story="gender care minors transgender youth state bans healthcare courts parental rights medical debate culture divide">
+        <a href="story-gender.html">
+          <img src="images/stories/gender/gender.png" alt="Documentary-style image of a state capitol building and hospital exterior"/>
+          <div class="card-body">
+            <h2 class="card-title">The Fight Over Gender Care for Minors</h2>
+            <div class="card-meta">United States • Healthcare policy • Published 2.23.26</div>
+            <div class="pillrow">
+              <span class="pill">Healthcare</span>
+              <span class="pill">Youth policy</span>
+              <span class="pill">Culture divide</span>
+            </div>
+          </div>
+        </a>
+      </article>
 
-    
-    <!-- Card Epstein -->
-<article class="card" data-story="Epstein files transparency sealed records elite cover up institutions media narratives">
-  <a href="story-epstein.html">
-    <img src="images/stories/epstein/epstein-files.png" alt="Documentary-style image representing sealed court records and public scrutiny"/>
-    <div class="card-body">
-      <h2 class="card-title">The Epstein Files</h2>
-      <div class="card-meta">United States • Court records • Published 1.28.26</div>
-      <div class="pillrow">
-        <span class="pill">Transparency</span>
-        <span class="pill">Institutions</span>
-        <span class="pill">Media split</span>
-      </div>
-    </div>
-  </a>
-    </article>
+      <!-- Card Epstein -->
+      <article class="card" data-story="Epstein files transparency sealed records elite cover up institutions media narratives">
+        <a href="story-epstein.html">
+          <img src="images/stories/epstein/epstein-files.png" alt="Documentary-style image representing sealed court records and public scrutiny"/>
+          <div class="card-body">
+            <h2 class="card-title">The Epstein Files</h2>
+            <div class="card-meta">United States • Court records • Published 1.28.26</div>
+            <div class="pillrow">
+              <span class="pill">Transparency</span>
+              <span class="pill">Institutions</span>
+              <span class="pill">Media split</span>
+            </div>
+          </div>
+        </a>
+      </article>
 
-    <!-- Card - Lemon -->
-<article class="card">
-  <a href="story-lemon.html" class="story-card-link">
-    <img
-      class="story-card-image"
-      src="images/stories/lemon/lemon.png"
-      alt="Inside church with cameras and protesters"
-    />
-    <div class="card-body">
-      <div class="card-kicker">United States • Media</div>
-      <h2 class="card-title">
-        Don Lemon Arrested After Church Protest Draws Federal Charges
-      </h2>
-      <div class="card-meta">Minneapolis • ICE Protests • Published 2.2.26</div>
-      <div class="pillrow">
-        <span class="pill">Media</span>
-        <span class="pill">Religion</span>
-        <span class="pill">Policing</span>
-      </div>
-    </div>
-  </a>
-</article>
+      <!-- Card - Lemon -->
+      <article class="card">
+        <a href="story-lemon.html" class="story-card-link">
+          <img
+            class="story-card-image"
+            src="images/stories/lemon/lemon.png"
+            alt="Inside church with cameras and protesters"
+          />
+          <div class="card-body">
+            <div class="card-kicker">United States • Media</div>
+            <h2 class="card-title">
+              Don Lemon Arrested After Church Protest Draws Federal Charges
+            </h2>
+            <div class="card-meta">Minneapolis • ICE Protests • Published 2.2.26</div>
+            <div class="pillrow">
+              <span class="pill">Media</span>
+              <span class="pill">Religion</span>
+              <span class="pill">Policing</span>
+            </div>
+          </div>
+        </a>
+      </article>
 
-  <!-- Card Pretti -->
+      <!-- Card Pretti -->
       <article class="card" data-story="Alex Pretti shooting Minneapolis enforcement operation immigration federal agents">
         <a href="story-pretti.html">
           <img src="images/stories/alex-pretti/alex-pretti.png" alt="Documentary-style image of law enforcement and a bystander filming on a Minneapolis street"/>
