@@ -811,3 +811,324 @@ img {
   font-size: 0.8rem;
   color: #2563eb;
 }
+
+/* =========================
+   DARK MODE PATCH
+   ========================= */
+
+:root {
+  /* Dark-first palette (premium, not pure black) */
+  --bg: #0f1115;
+  --text: #e7eaf0;
+  --muted: #a9b0bf;
+  --border: #262b36;
+  --panel: #151923;
+
+  /* Accents (slightly softened from pure primary colors) */
+  --blue: #6ea8ff;
+  --red: #ff7a7a;
+  --gray: #9aa3b2;
+
+  --radius: 10px; /* slightly more premium */
+}
+
+/* Base */
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+}
+
+/* Header / nav surfaces */
+.topbar,
+.site-header {
+  background: rgba(21, 25, 35, 0.9);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+
+.navlinks a,
+.nav-links a {
+  opacity: 0.9;
+}
+
+.navlinks a:hover,
+.nav-links a:hover {
+  opacity: 1;
+}
+
+/* Search inputs */
+.search input,
+.header-search input,
+.nav-search input {
+  background: #0f1115;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.search input::placeholder,
+.header-search input::placeholder,
+.nav-search input::placeholder {
+  color: #7f8798;
+}
+
+/* Panels / cards */
+.panel,
+.card,
+.story-top-media,
+.hero-copy,
+.hero-media,
+.mapbox,
+.narrative-map,
+.story-head {
+  background: var(--panel);
+  border-color: var(--border);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+}
+
+/* Text fixes where you used hard-coded light colors */
+.meta,
+.story-kicker,
+.story-image-caption,
+.brand span,
+.tagline,
+.panel-header,
+.panel-title,
+.card-meta,
+.video-label,
+.share-label {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.story-subtitle,
+.detail p,
+.mapbox p,
+.map-text,
+.accordion-btn .v {
+  color: #c7cddd;
+}
+
+/* Headlines that were hard-coded to dark */
+.panel-headline {
+  color: var(--text);
+}
+
+.headline {
+  color: var(--text);
+}
+
+.headline.left {
+  color: var(--blue);
+}
+
+.headline.right {
+  color: var(--red);
+}
+
+/* Pills + source tags + video buttons + share buttons */
+.pill,
+.source-tag,
+.video-btn,
+.share-btn {
+  background: #0f1115;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.pill:hover,
+.source-tag:hover,
+.video-btn:hover,
+.share-btn:hover {
+  background: #1a2030;
+}
+
+/* Accordion borders */
+.bullets li {
+  border-top: 1px solid var(--border);
+}
+
+/* Video block + share block divider lines */
+.video-block,
+.share-block {
+  border-top: 1px solid var(--border);
+}
+
+/* Story hero image treatment */
+.story-hero {
+  background: #000;
+}
+
+.story-hero img {
+  opacity: 0.8;
+}
+
+/* Demonize boxes + rejects box (dark equivalents) */
+.demonize-left {
+  background: rgba(110, 168, 255, 0.12);
+  border-left: 4px solid rgba(110, 168, 255, 0.9);
+}
+
+.demonize-right {
+  background: rgba(255, 122, 122, 0.10);
+  border-left: 4px solid rgba(255, 122, 122, 0.9);
+}
+
+.rejects {
+  background: rgba(154, 163, 178, 0.10);
+  border-left: 4px solid rgba(154, 163, 178, 0.8);
+}
+
+.rej-left {
+  color: var(--blue);
+}
+
+.rej-right {
+  color: var(--red);
+}
+
+/* Share feedback color */
+.share-feedback {
+  color: var(--blue);
+}
+
+/* =========================
+   DARK MODE FIX PATCH #2
+   Paste at end of styles.css
+========================= */
+
+/* 1) Stronger, always-visible accent bars on the three panels */
+.panel-left,
+.panel-right,
+.panel-facts {
+  border-top-width: 4px;
+  border-top-style: solid;
+}
+
+.panel-left  { border-top-color: var(--blue) !important; }
+.panel-right { border-top-color: var(--red) !important; }
+.panel-facts { border-top-color: rgba(231, 234, 240, 0.35) !important; }
+
+/* Some templates can visually "lose" the top border due to shadows/background.
+   This adds a subtle inset glow that makes the bar read clearly. */
+.panel-left  { box-shadow: 0 10px 24px rgba(0,0,0,0.35), inset 0 4px 0 rgba(110,168,255,0.35) !important; }
+.panel-right { box-shadow: 0 10px 24px rgba(0,0,0,0.35), inset 0 4px 0 rgba(255,122,122,0.30) !important; }
+.panel-facts { box-shadow: 0 10px 24px rgba(0,0,0,0.35), inset 0 4px 0 rgba(231,234,240,0.12) !important; }
+
+/* 2) Fix unreadable black labels inside panels/accordions */
+.panel strong,
+.panel b,
+.accordion-btn .k,
+.accordion-btn .v,
+.bullets li,
+.bullets li strong,
+.panel ul li,
+.panel ul li strong {
+  color: var(--text) !important;
+}
+
+/* Your accordion secondary text should be slightly muted, not black */
+.accordion-btn .v {
+  color: #c7cddd !important;
+}
+
+/* 3) Fix chevrons/carets (were inheriting black) */
+.chev {
+  color: var(--muted) !important;
+}
+
+/* If your template uses a native <select> or dropdown caret anywhere */
+select,
+option {
+  background: #0f1115;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* 4) Buttons need a white outline */
+.video-btn,
+.share-btn,
+.source-tag,
+.pill {
+  border-color: rgba(255, 255, 255, 0.28) !important;
+}
+
+.video-btn:hover,
+.share-btn:hover,
+.source-tag:hover,
+.pill:hover {
+  border-color: rgba(255, 255, 255, 0.40) !important;
+  background: #1a2030 !important;
+}
+
+/* 5) Make panel header text and dots readable */
+.panel-header,
+.panel-title {
+  color: var(--muted) !important;
+}
+
+.dot-facts { background: rgba(231,234,240,0.6) !important; }
+
+/* 6) If any leftover borders are still using the old light divider (#eee), normalize them */
+.video-block,
+.share-block,
+.bullets li {
+  border-top-color: var(--border) !important;
+}
+
+/* =========================
+   DARK MODE FIX PATCH #3
+   Card + Search Outlines
+========================= */
+
+/* 1) Brief cards (index panels) */
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+}
+
+/* Optional: subtle hover lift to feel premium */
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  transform: translateY(-2px);
+  transition: all 0.18s ease;
+}
+
+/* 2) Search input (Search briefs) */
+.search input,
+.nav-search input,
+.header-search input {
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  background: #0f1115 !important;
+  color: var(--text) !important;
+}
+
+.search input:focus,
+.nav-search input:focus,
+.header-search input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* =========================
+   HEADER — TRUE BLACK
+========================= */
+
+.topbar,
+.site-header {
+  background: #000 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.12) !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+
+.navlinks a,
+.nav-links a {
+  color: rgba(255,255,255,0.85);
+}
+
+.navlinks a:hover,
+.nav-links a:hover {
+  color: #ffffff;
+}
