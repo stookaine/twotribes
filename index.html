@@ -6,45 +6,54 @@
   <title>Two Tribes</title>
   <link rel="stylesheet" href="styles.css">
 
-  <!-- ✅ Beehiiv embed: responsive fixes + prevent intermittent extra blank space -->
+  <!-- ✅ Beehiiv embed: responsive fixes + tighter spacing under form -->
   <style>
-    .signup-wrap{
-      margin: 20px auto 16px;     /* tighter space above/below */
+    .signup-wrap {
+      margin: 24px auto 12px;       /* ✅ tighter bottom spacing */
       text-align: center;
       padding: 0 12px;
-      line-height: 0;             /* prevents iframe baseline/line-box gaps */
     }
 
-    .signup-frame{
+    .signup-frame {
       width: 100%;
-      max-width: 720px;           /* give the form more room */
+      max-width: 640px;
       margin: 0 auto;
     }
 
-    /* IMPORTANT:
-       Do NOT set a fixed height here (that causes the “sometimes huge gap” issue).
-       Let Beehiiv’s embed.js control the real height via postMessage.
-       We only set a min-height so it never clips while loading. */
-    .beehiiv-embed{
+    /* ✅ Key: reduce reserved iframe height (removes blank space below) */
+    .beehiiv-embed {
       width: 100% !important;
-      max-width: 720px;
+      max-width: 640px;
       border: 0;
       display: block;
       margin: 0 auto;
       background: transparent;
       box-shadow: none;
       border-radius: 0;
-      min-height: 280px;          /* safe default while the script sizes it */
+      height: 280px;               /* ✅ smaller = less blank space */
     }
 
-    @media (max-width: 600px){
-      .beehiiv-embed{
-        min-height: 420px;        /* mobile usually needs more */
+    /* ✅ Tuck stories up under the form (optional but usually desired) */
+    .storylist {
+      margin-top: -10px !important; /* pull up slightly */
+    }
+
+    /* Mobile: Beehiiv often needs more height for stacked layout */
+    @media (max-width: 600px) {
+      .signup-wrap {
+        margin: 18px auto 8px;      /* even tighter on mobile */
+      }
+
+      .beehiiv-embed {
+        height: 420px;              /* enough to avoid cutoff */
+      }
+
+      .storylist {
+        margin-top: -14px !important;
       }
     }
   </style>
 </head>
-
 <body>
   <!-- Header -->
   <div class="topbar">
@@ -84,7 +93,7 @@
       </div>
     </div>
 
-    <!-- ✅ Beehiiv signup -->
+    <!-- ✅ Beehiiv signup (responsive + tighter spacing) -->
     <div class="signup-wrap">
       <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
       <div class="signup-frame">
@@ -98,7 +107,8 @@
       </div>
     </div>
 
-    <section class="storylist" style="margin-top:14px;">
+    <!-- ✅ Removed inline margin-top; controlled by CSS above -->
+    <section class="storylist">
 
       <!-- Card Iran Strikes -->
       <article class="card" data-story="iran-regime-change-strikes">
