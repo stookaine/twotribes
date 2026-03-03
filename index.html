@@ -9,38 +9,52 @@
   <!-- ✅ Beehiiv embed: responsive fixes (prevents cutoff on mobile) -->
   <style>
     .signup-wrap {
-  margin: 24px auto 40px;
-  text-align: center;
-  padding: 0 12px; /* less side padding = more usable width */
-}
+      margin: 24px auto 40px;
+      text-align: center;
+      padding: 0 12px; /* less side padding = more usable width */
+    }
 
-.signup-frame {
-  width: 100%;
-  max-width: 640px; /* increased from 560px */
-  margin: 0 auto;
-}
+    /* Give the embed more room, especially on desktop */
+    .signup-frame {
+      width: 100%;
+      max-width: 760px; /* increased from 640px */
+      margin: 0 auto;
+    }
 
+    /* Force iframe to fill the available width we give it */
     .beehiiv-embed {
-  width: 100% !important;
-  max-width: 640px;
-  border: 0;
-  display: block;
-  margin: 0 auto;
-  background: transparent;
-  box-shadow: none;
-  border-radius: 0;
-  height: 360px;
-}
+      width: 100% !important;
+      max-width: 760px;
+      border: 0;
+      display: block;
+      margin: 0 auto;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+      height: 360px;
+      overflow: hidden;
+    }
 
-@media (max-width: 600px) {
-  .beehiiv-embed {
-    height: 520px;
-  }
-}
+    /* On small screens, give the embed more height so nothing is clipped */
+    @media (max-width: 600px) {
+      .signup-wrap {
+        padding: 0 8px; /* slightly tighter on mobile */
+      }
+
+      .signup-frame,
+      .beehiiv-embed {
+        max-width: 100%;
+      }
+
+      .beehiiv-embed {
+        height: 520px;
+      }
+    }
   </style>
 </head>
+
 <body>
-    <!-- Header -->
+  <!-- Header -->
   <div class="topbar">
     <nav class="nav">
       <a class="brand" href="index.html">
@@ -80,9 +94,8 @@
 
     <!-- ✅ Beehiiv signup (responsive + no cutoff on mobile) -->
     <div class="signup-wrap">
-      <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
       <div class="signup-frame">
-        <iframe 
+        <iframe
           src="https://subscribe-forms.beehiiv.com/b012d6d2-198e-4096-af3b-3fa51fe59020"
           class="beehiiv-embed"
           data-test-id="beehiiv-embed"
@@ -199,6 +212,9 @@
 
     </section>
   </main>
+
+  <!-- Load Beehiiv embed script once, near the end -->
+  <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
 
   <script src="app.js"></script>
 </body>
