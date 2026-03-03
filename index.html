@@ -6,44 +6,57 @@
   <title>Two Tribes</title>
   <link rel="stylesheet" href="styles.css">
 
-  <!-- ✅ Beehiiv embed: responsive fixes (prevents cutoff on mobile) -->
+  <!-- Page-only tweaks (safe to keep here even if you also have styles.css) -->
   <style>
-    .signup-wrap {
-      margin: 24px auto 40px;
-      text-align: center;
-      padding: 0 16px; /* gives breathing room on mobile */
+    /* Keep content from feeling “squeezed” on mobile */
+    .container {
+      padding-left: 16px;
+      padding-right: 16px;
     }
 
-    .signup-frame {
+    /* Beehiiv signup embed: make it truly full-width on mobile */
+    .signup-wrap {
+      margin: 24px 0 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .signup-inner {
       width: 100%;
-      max-width: 560px;
-      margin: 0 auto;
+      max-width: 760px; /* gives the form more room on larger screens */
     }
 
     .beehiiv-embed {
-      width: 100% !important;
-      max-width: 560px;
-      border: 0;
+      width: 100%;
+      max-width: 100%;
       display: block;
       margin: 0 auto;
+      border: 0;
+      border-radius: 0;
       background: transparent;
       box-shadow: none;
-      border-radius: 0;
-
-      /* Desktop-ish default */
-      height: 338px;
+      /* Height is the one thing we can’t auto-fit reliably from outside the iframe.
+         Make it a bit taller on mobile so it doesn’t feel cramped/cut off. */
+      height: 340px;
     }
 
-    /* Mobile: the form stacks, so it needs more height */
-    @media (max-width: 600px) {
+    @media (max-width: 480px) {
+      .container {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      .signup-wrap {
+        margin: 18px 0 28px;
+      }
       .beehiiv-embed {
-        height: 520px; /* prevents the input/button from being cut off */
+        height: 420px;
       }
     }
   </style>
 </head>
+
 <body>
-    <!-- Header -->
+  <!-- Header -->
   <div class="topbar">
     <nav class="nav">
       <a class="brand" href="index.html">
@@ -81,16 +94,17 @@
       </div>
     </div>
 
-    <!-- ✅ Beehiiv signup (responsive + no cutoff on mobile) -->
+    <!-- Beehiiv signup (responsive wrapper; iframe now uses 100% width) -->
     <div class="signup-wrap">
-      <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-      <div class="signup-frame">
-        <iframe 
+      <div class="signup-inner">
+        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+        <iframe
           src="https://subscribe-forms.beehiiv.com/b012d6d2-198e-4096-af3b-3fa51fe59020"
           class="beehiiv-embed"
           data-test-id="beehiiv-embed"
           frameborder="0"
-          scrolling="no">
+          scrolling="no"
+          title="Two Tribes newsletter signup">
         </iframe>
       </div>
     </div>
