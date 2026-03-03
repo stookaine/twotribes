@@ -9,49 +9,44 @@
   <!-- ✅ Beehiiv embed: responsive fixes + tighter spacing under form -->
   <style>
     .signup-wrap {
-      margin: 24px auto 12px;       /* ✅ tighter bottom spacing */
-      text-align: center;
-      padding: 0 12px;
-    }
+  margin: 24px auto 18px;   /* 👈 adds a small, clean gap below form */
+  text-align: center;
+  padding: 0 12px;
+}
 
-    .signup-frame {
-      width: 100%;
-      max-width: 640px;
-      margin: 0 auto;
-    }
+.signup-frame {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
 
-    /* ✅ Key: reduce reserved iframe height (removes blank space below) */
-    .beehiiv-embed {
-      width: 100% !important;
-      max-width: 640px;
-      border: 0;
-      display: block;
-      margin: 0 auto;
-      background: transparent;
-      box-shadow: none;
-      border-radius: 0;
-      height: 280px;               /* ✅ smaller = less blank space */
-    }
+.beehiiv-embed {
+  width: 100% !important;
+  max-width: 640px;
+  border: 0;
+  display: block;
+  margin: 0 auto;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  height: 300px;            /* 👈 slightly taller than before */
+}
 
-    /* ✅ Tuck stories up under the form (optional but usually desired) */
-    .storylist {
-      margin-top: -10px !important; /* pull up slightly */
-    }
+/* Remove any .storylist negative margins */
+.storylist {
+  margin-top: 0;
+}
 
-    /* Mobile: Beehiiv often needs more height for stacked layout */
-    @media (max-width: 600px) {
-      .signup-wrap {
-        margin: 18px auto 8px;      /* even tighter on mobile */
-      }
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .signup-wrap {
+    margin: 20px auto 14px;  /* 👈 slightly more space on mobile */
+  }
 
-      .beehiiv-embed {
-        height: 420px;              /* enough to avoid cutoff */
-      }
-
-      .storylist {
-        margin-top: -14px !important;
-      }
-    }
+  .beehiiv-embed {
+    height: 440px;           /* safe for stacked mobile layout */
+  }
+}
   </style>
 </head>
 <body>
@@ -93,9 +88,7 @@
       </div>
     </div>
 
-    <br>
-    <br>
-
+    
     <!-- ✅ Beehiiv signup (responsive + tighter spacing) -->
     <div class="signup-wrap">
       <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
