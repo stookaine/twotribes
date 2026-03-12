@@ -1178,19 +1178,28 @@ option {
   color: #ffffff;
 }
 
-/* Mobile panel order override */
-@media (max-width: 900px) {
-
-  .panel-facts {
-    order: 1;
+/* Desktop layout stays Left | Ground | Right */
+@media (min-width: 900px) {
+  .panels {
+    grid-template-areas: "left facts right";
   }
 
-  .panel-left {
-    order: 2;
+  .panel-left  { grid-area: left; }
+  .panel-facts { grid-area: facts; }
+  .panel-right { grid-area: right; }
+}
+
+/* Mobile layout becomes Ground | Left | Right */
+@media (max-width: 899px) {
+  .panels {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "facts"
+      "left"
+      "right";
   }
 
-  .panel-right {
-    order: 3;
-  }
-
+  .panel-left  { grid-area: left; }
+  .panel-facts { grid-area: facts; }
+  .panel-right { grid-area: right; }
 }
