@@ -1177,3 +1177,20 @@ option {
 .nav-links a:hover {
   color: #ffffff;
 }
+
+/* Mobile panel order override */
+@media (max-width: 900px) {
+
+  .panel-facts {
+    order: 1;
+  }
+
+  .panel-left {
+    order: 2;
+  }
+
+  .panel-right {
+    order: 3;
+  }
+
+}
